@@ -83,7 +83,9 @@ int main(int argc, char** argv){
 
     cv::Mat edgeImage(numRows, numCols, CV_8UC1, h_edgeImage);
     cv::imwrite("/content/edge_image.png", edgeImage);
-
+    
+    // free allocated memory
+    delete[] h_edgeImage;
     cudaFree(d_edgeImage);
     cudaFree(d_greyImage);
 
